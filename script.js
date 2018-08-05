@@ -62,14 +62,33 @@ console.table(yearslived);
 
 // select all bolevards that include de in their name
 // from https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-const category = document.querySelector('.mw-category');
-// const alllinks = category.querySelectorAll('a');
-// convert to array
-const alllinks = Array.from(category.querySelectorAll('a'));
-console.log(alllinks);
-const bolevards = alllinks
-                        .map( linkel => linkel.textContent)
-                        .filter( linktext => linktext.includes("de"));
-console.log(bolevards);
+// const category = document.querySelector('.mw-category');
+// // const alllinks = category.querySelectorAll('a');
+// // convert to array
+// const alllinks = Array.from(category.querySelectorAll('a'));
+// console.log(alllinks);
+// const bolevards = alllinks
+//                         .map( linkel => linkel.textContent)
+//                         .filter( linktext => linktext.includes("de"));
+// console.log(bolevards);
 
+//sort people alphabetically by lastname
+const sorted = people.sort( (a ,b) => {
+    const [afirst ,alast] = a.split(', ');
+    const [bfirst ,blast] = b.split(', ');
+    return (alast > blast) ? 1 : -1 ;
+});
+console.table(sorted);
 
+//sum up instances of each of these
+const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+const instance = data.reduce( (counter,dataword) => {
+    if (!counter[dataword]) {
+        counter[dataword]=0;
+    }
+    counter[dataword]++;
+    // console.log(counter,dataword);
+    return counter;
+},{});
+console.log(instance);
