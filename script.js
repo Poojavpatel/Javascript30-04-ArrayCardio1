@@ -32,6 +32,10 @@ const fullname = inventors.map((inventor) => `${inventor.first} ${inventor.last}
 console.table(fullname);
 
 // Sort
+//In sort we pass in two items..it sorts them by some criteria ..returns 1 or -1
+const ordered = inventors.sort((a,b) => (a.year > b.year)? 1: -1);
+console.table(ordered);
 
 // Reduce
+//Allows you to build something on every single one
 
