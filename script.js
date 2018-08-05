@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 // Data to work with
 const inventors = [
     { first: 'Albert', last: 'Einstein', year: 1879, passed: 1955 },
