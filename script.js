@@ -37,5 +37,39 @@ const ordered = inventors.sort((a,b) => (a.year > b.year)? 1: -1);
 console.table(ordered);
 
 // Reduce
-//Allows you to build something on every single one
+//Allows you to build something on every single element of array instead of writing a for loop
+
+// var totalyears = 0;
+// for (let i = 0; i < inventors.length; i++) {
+//     totalyears += inventors[i].year;    
+// }
+// console.log(totalyears);
+// // array.reduce( counter , each object of array)
+
+const totalyears = inventors.reduce( (total ,inventor) => {
+    return (total + (inventor.passed - inventor.year));
+},0);
+console.log(totalyears);
+
+
+//sort inventors by years lived
+const yearslived = inventors.sort( (a,b) => {
+    const last = a.passed-a.year;
+    const next = b.passed-b.year;
+    return last > next ? -1 : 1 ;
+});
+console.table(yearslived);
+
+// select all bolevards that include de in their name
+// from https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+const category = document.querySelector('.mw-category');
+// const alllinks = category.querySelectorAll('a');
+// convert to array
+const alllinks = Array.from(category.querySelectorAll('a'));
+console.log(alllinks);
+const bolevards = alllinks
+                        .map( linkel => linkel.textContent)
+                        .filter( linktext => linktext.includes("de"));
+console.log(bolevards);
+
 
